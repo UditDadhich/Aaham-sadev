@@ -1,1220 +1,693 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us — Aham Sadev | Kalles Theme</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* ===== RESET & BASE ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background-color: #FFF8F6;
-      color: #333;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* ===== CUSTOM PROPERTIES ===== */
-    :root {
-      --as-maroon: #6D1F2F;
-      --as-maroon-dark: #521728;
-      --as-rose: #E8A4B4;
-      --as-blush: #F6D3DA;
-      --as-ivory: #FFF8F6;
-      --as-charcoal: #333333;
-      --as-white: #FFFFFF;
-      
-      /* Typography */
-      --font-serif: 'Cormorant Garamond', serif;
-      --font-sans: 'Jost', sans-serif;
-      
-      /* Spacing */
-      --spacing-xs: 0.5rem;
-      --spacing-sm: 1rem;
-      --spacing-md: 2rem;
-      --spacing-lg: 4rem;
-      --spacing-xl: 6rem;
-      --spacing-2xl: 8rem;
-      
-      /* Breakpoints */
-      --breakpoint-sm: 576px;
-      --breakpoint-md: 768px;
-      --breakpoint-lg: 1024px;
-      --breakpoint-xl: 1280px;
-      
-      /* Transitions */
-      --transition-default: all 0.3s ease;
-      --transition-slow: all 0.6s ease;
-    }
-
-    /* ===== UTILITY CLASSES ===== */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.5rem;
-      }
-    }
-
-    /* ===== HEADER (Kalles-style) ===== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--as-white);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.05);
-      transition: var(--transition-default);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--as-maroon);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .main-nav a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--as-charcoal);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: var(--transition-default);
-    }
-
-    .main-nav a:hover {
-      color: var(--as-maroon);
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .header-actions button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: var(--as-charcoal);
-      transition: var(--transition-default);
-    }
-
-    .header-actions button:hover {
-      color: var(--as-maroon);
-    }
-
-    @media (max-width: 768px) {
-      .main-nav {
-        display: none;
-      }
-    }
-
-    /* ===== FOOTER (Kalles-style) ===== */
-    .site-footer {
-      background: var(--as-ivory);
-      border-top: 1px solid rgba(0,0,0,0.05);
-      padding: var(--spacing-xl) 0 var(--spacing-lg);
-      margin-top: var(--spacing-2xl);
-    }
-
-    .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-col h3 {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--as-maroon);
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-col a {
-      text-decoration: none;
-      color: var(--as-charcoal);
-      font-size: 0.875rem;
-      transition: var(--transition-default);
-    }
-
-    .footer-col a:hover {
-      color: var(--as-maroon);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: var(--spacing-lg);
-      font-size: 0.75rem;
-      color: #666;
-      border-top: 1px solid rgba(0,0,0,0.05);
-      margin-top: var(--spacing-lg);
-    }
-
-    /* ===== MAIN CONTENT (About Us Page) ===== */
-    #as-about {
-      background: var(--as-ivory);
-    }
-
-    /* Section Labels */
-    .as-section-label {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--as-rose);
-      margin-bottom: 1rem;
-      font-weight: 500;
-      font-family: var(--font-sans);
-    }
-
-    .as-section-title {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--as-maroon);
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-
-    .as-section-desc {
-      font-size: 0.9rem;
-      color: #666;
-      line-height: 2;
-      font-weight: 300;
-      letter-spacing: 0.3px;
-      font-family: var(--font-sans);
-    }
-
-    /* Buttons */
-    .as-btn-primary {
-      background: var(--as-maroon);
-      color: white;
-      padding: 0.875rem 2.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      transition: var(--transition-default);
-      display: inline-block;
-      text-decoration: none;
-      line-height: 1;
-    }
-
-    .as-btn-primary:hover {
-      background: var(--as-maroon-dark);
-      transform: translateY(-2px);
-    }
-
-    .as-btn-outline {
-      background: transparent;
-      color: var(--as-maroon);
-      padding: 0.8125rem 2.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      border: 1.5px solid var(--as-maroon);
-      cursor: pointer;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      transition: var(--transition-default);
-      display: inline-block;
-      text-decoration: none;
-      line-height: 1;
-    }
-
-    .as-btn-outline:hover {
-      background: var(--as-blush);
-      color: var(--as-maroon);
-      border-color: var(--as-maroon);
-    }
-
-    /* Ornament Divider */
-    .as-ornament-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0 0;
-      opacity: 0.5;
-    }
-
-    .as-ornament-divider::before,
-    .as-ornament-divider::after {
-      content: '';
-      flex: 1;
-      max-width: 80px;
-      height: 1px;
-      background: var(--as-rose);
-    }
-
-    .as-ornament-divider span {
-      color: var(--as-rose);
-      font-size: 0.875rem;
-      letter-spacing: 3px;
-    }
-
-    /* Animations */
-    @keyframes as-fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .as-fade-up {
-      animation: as-fadeUp 0.8s ease both;
-    }
-
-    .as-delay-1 { animation-delay: 0.1s; }
-    .as-delay-2 { animation-delay: 0.22s; }
-    .as-delay-3 { animation-delay: 0.36s; }
-    .as-delay-4 { animation-delay: 0.5s; }
-
-    /* Hero Section */
-    .as-about-hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--as-ivory);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 6rem 5rem;
-    }
-
-    .as-about-hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246,211,218,0.45) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .as-about-hero::after {
-      content: 'अहम् सदेव';
-      position: absolute;
-      bottom: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-serif);
-      font-size: 7.5rem;
-      font-weight: 300;
-      color: rgba(232,164,180,0.08);
-      white-space: nowrap;
-      pointer-events: none;
-      letter-spacing: 8px;
-      line-height: 1;
-    }
-
-    .as-about-hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .as-about-hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--as-rose);
-      font-weight: 500;
-      margin-bottom: 1.75rem;
-      font-family: var(--font-sans);
-    }
-
-    .as-about-hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(4rem, 10vw, 6.25rem);
-      font-weight: 300;
-      color: var(--as-maroon);
-      line-height: 0.95;
-      letter-spacing: -2px;
-      margin-bottom: 2.375rem;
-    }
-
-    .as-about-hero-sub {
-      font-family: var(--font-serif);
-      font-size: 1.375rem;
-      font-style: italic;
-      color: #888;
-      font-weight: 300;
-      line-height: 1.85;
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
-      letter-spacing: 0.3px;
-    }
-
-    .as-about-hero-scroll {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(109,31,47,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 1.5rem;
-      font-family: var(--font-sans);
-    }
-
-    .as-about-hero-scroll::after {
-      content: '';
-      display: inline-block;
-      width: 1px;
-      height: 40px;
-      background: rgba(109,31,47,0.25);
-      vertical-align: middle;
-    }
-
-    /* Meaning Section */
-    .as-meaning-section {
-      padding: 6.875rem 5rem;
-      background: var(--as-white);
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .as-meaning-left {
-      position: relative;
-    }
-
-    .as-meaning-glyph {
-      font-family: var(--font-serif);
-      font-size: 13.75rem;
-      font-weight: 300;
-      color: rgba(232,164,180,0.18);
-      line-height: 1;
-      position: absolute;
-      top: -60px;
-      left: -30px;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -10px;
-    }
-
-    .as-meaning-left .as-section-title {
-      font-size: 3.875rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .as-meaning-left .as-section-desc {
-      max-width: 440px;
-      margin-top: 1.375rem;
-    }
-
-    .as-meaning-right {
-      display: flex;
-      flex-direction: column;
-      gap: 2.75rem;
-    }
-
-    .as-meaning-word {
-      border-left: 2px solid var(--as-blush);
-      padding-left: 1.75rem;
-      position: relative;
-      transition: var(--transition-default);
-    }
-
-    .as-meaning-word::before {
-      content: '';
-      position: absolute;
-      left: -2px;
-      top: 0;
-      width: 2px;
-      height: 0;
-      background: var(--as-maroon);
-      transition: height 0.5s ease;
-    }
-
-    .as-meaning-word:hover::before {
-      height: 100%;
-    }
-
-    .as-meaning-word-sanskrit {
-      font-family: var(--font-serif);
-      font-size: 2.75rem;
-      font-weight: 300;
-      color: var(--as-maroon);
-      line-height: 1;
-      margin-bottom: 0.375rem;
-      font-style: italic;
-    }
-
-    .as-meaning-word-en {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--as-rose);
-      font-weight: 500;
-      margin-bottom: 0.875rem;
-      font-family: var(--font-sans);
-    }
-
-    .as-meaning-word p {
-      font-size: 0.875rem;
-      line-height: 1.95;
-      color: #777;
-      font-weight: 300;
-      max-width: 360px;
-      font-family: var(--font-sans);
-      margin: 0;
-    }
-
-    /* Story Section */
-    .as-story-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 620px;
-    }
-
-    .as-story-image {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .as-story-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: var(--transition-slow);
-    }
-
-    .as-story-image:hover img {
-      transform: scale(1.05);
-    }
-
-    .as-story-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(160deg, rgba(192,120,136,0.35) 0%, rgba(109,31,47,0.55) 100%);
-      pointer-events: none;
-    }
-
-    .as-story-text {
-      background: var(--as-ivory);
-      padding: 5.625rem 5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .as-story-text .as-section-title {
-      font-size: 3.25rem;
-    }
-
-    .as-story-year {
-      font-family: var(--font-serif);
-      font-size: 4.5rem;
-      font-weight: 300;
-      color: rgba(232,164,180,0.3);
-      line-height: 1;
-      margin-bottom: -1rem;
-    }
-
-    /* Different Section */
-    .as-different-section {
-      padding: 6.875rem 5rem;
-      background: var(--as-blush);
-    }
-
-    .as-different-header {
-      text-align: center;
-      margin-bottom: 4.375rem;
-    }
-
-    .as-different-header .as-section-title {
-      font-size: 3.25rem;
-    }
-
-    .as-different-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-    }
-
-    .as-different-block {
-      background: var(--as-white);
-      padding: 3.125rem 2.25rem 2.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .as-different-block:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .as-different-block::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(to right, var(--as-blush), var(--as-maroon));
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-      transform-origin: left;
-    }
-
-    .as-different-block:hover::before {
-      transform: scaleX(1);
-    }
-
-    .as-different-icon {
-      font-size: 1.75rem;
-      margin-bottom: 1.375rem;
-      display: block;
-      line-height: 1;
-    }
-
-    .as-different-block h3 {
-      font-family: var(--font-serif);
-      font-size: 1.625rem;
-      font-weight: 400;
-      color: var(--as-maroon);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .as-different-block p {
-      font-size: 0.84375rem;
-      line-height: 1.95;
-      color: #777;
-      font-weight: 300;
-      font-family: var(--font-sans);
-      margin: 0;
-    }
-
-    .as-different-num {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.5rem;
-      font-family: var(--font-serif);
-      font-size: 3.25rem;
-      font-weight: 300;
-      color: rgba(232,164,180,0.2);
-      line-height: 1;
-    }
-
-    /* Woman Section */
-    .as-woman-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 600px;
-    }
-
-    .as-woman-text {
-      background: var(--as-maroon);
-      padding: 5.625rem 5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .as-woman-text::before {
-      content: 'अहम्';
-      position: absolute;
-      bottom: -30px;
-      right: -10px;
-      font-family: var(--font-serif);
-      font-size: 10rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.06);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .as-woman-text .as-section-label {
-      color: var(--as-rose);
-    }
-
-    .as-woman-text .as-section-title {
-      color: var(--as-white);
-      font-size: 3.25rem;
-    }
-
-    .as-woman-text .as-section-desc {
-      color: rgba(255,255,255,0.65);
-      margin-top: 1.5rem;
-      max-width: 420px;
-    }
-
-    .as-woman-traits {
-      display: flex;
-      flex-direction: column;
-      gap: 0.875rem;
-      margin-top: 2.375rem;
-    }
-
-    .as-woman-trait {
-      display: flex;
-      align-items: center;
-      gap: 0.875rem;
-      color: rgba(255,255,255,0.75);
-      font-size: 0.8125rem;
-      letter-spacing: 0.5px;
-      font-weight: 300;
-      font-family: var(--font-sans);
-    }
-
-    .as-woman-trait::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--as-rose);
-      flex-shrink: 0;
-    }
-
-    .as-woman-image {
-      position: relative;
-      overflow: hidden;
-      min-height: 500px;
-    }
-
-    .as-woman-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: var(--transition-slow);
-    }
-
-    .as-woman-image:hover img {
-      transform: scale(1.05);
-    }
-
-    .as-woman-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(145deg, rgba(240,200,212,0.15) 0%, rgba(204,136,152,0.2) 100%);
-      pointer-events: none;
-    }
-
-    /* Gallery Section */
-    .as-gallery-section {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      height: 340px;
-      overflow: hidden;
-    }
-
-    .as-gallery-item {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .as-gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .as-gallery-item:hover img {
-      transform: scale(1.06);
-    }
-
-    .as-gallery-item-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(109,31,47,0);
-      transition: background 0.4s ease;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.25rem;
-    }
-
-    .as-gallery-item:hover .as-gallery-item-overlay {
-      background: rgba(109,31,47,0.4);
-    }
-
-    .as-gallery-caption {
-      color: white;
-      font-family: var(--font-serif);
-      font-size: 0.875rem;
-      font-style: italic;
-      letter-spacing: 1px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .as-gallery-item:hover .as-gallery-caption {
-      opacity: 1;
-    }
-
-    /* Philosophy Section */
-    .as-philosophy-section {
-      padding: 7.5rem 5rem;
-      background: var(--as-ivory);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .as-philosophy-section::before,
-    .as-philosophy-section::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .as-philosophy-section::before {
-      width: 600px;
-      height: 600px;
-      border: 1px solid rgba(232,164,180,0.2);
-    }
-
-    .as-philosophy-section::after {
-      width: 400px;
-      height: 400px;
-      border: 1px solid rgba(232,164,180,0.15);
-    }
-
-    .as-philosophy-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .as-philosophy-quote {
-      font-family: var(--font-serif);
-      font-size: 4.5rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--as-maroon);
-      line-height: 1;
-      margin-bottom: 2.125rem;
-      letter-spacing: -1px;
-    }
-
-    .as-philosophy-text {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-style: italic;
-      color: #888;
-      line-height: 1.9;
-      font-weight: 300;
-      margin-bottom: 1.125rem;
-    }
-
-    .as-philosophy-byline {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--as-rose);
-      font-weight: 500;
-      font-family: var(--font-sans);
-    }
-
-    /* CTA Section */
-    .as-about-cta {
-      padding: 6.25rem 5rem;
-      background: var(--as-blush);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .as-about-cta::before {
-      content: '✦';
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.6875rem;
-      letter-spacing: 3px;
-      color: var(--as-rose);
-      opacity: 0.5;
-    }
-
-    .as-about-cta .as-section-title {
-      font-size: 3.5rem;
-      max-width: 560px;
-      margin: 1rem auto 1.75rem;
-    }
-
-    .as-about-cta .as-section-desc {
-      max-width: 440px;
-      margin: 0 auto 2.75rem;
-      text-align: center;
-    }
-
-    .as-cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .as-different-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .as-gallery-section {
-        grid-template-columns: repeat(2, 1fr);
-        height: auto;
-      }
-      .as-gallery-item {
-        height: 260px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .as-about-hero {
-        padding: 5rem 1.75rem;
-        min-height: 70vh;
-      }
-      .as-meaning-section {
-        grid-template-columns: 1fr;
-        gap: 3.125rem;
-        padding: 5rem 1.75rem;
-      }
-      .as-meaning-glyph {
-        font-size: 8.75rem;
-      }
-      .as-story-section {
-        grid-template-columns: 1fr;
-      }
-      .as-story-image {
-        min-height: 320px;
-      }
-      .as-story-text {
-        padding: 3.75rem 1.75rem;
-      }
-      .as-different-section {
-        padding: 5rem 1.75rem;
-      }
-      .as-different-grid {
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-      .as-woman-section {
-        grid-template-columns: 1fr;
-      }
-      .as-woman-text {
-        padding: 4.375rem 1.75rem;
-      }
-      .as-woman-image {
-        min-height: 380px;
-      }
-      .as-philosophy-section {
-        padding: 5rem 1.75rem;
-      }
-      .as-philosophy-quote {
-        font-size: 3rem;
-      }
-      .as-about-cta {
-        padding: 5rem 1.75rem;
-      }
-      .as-section-title {
-        font-size: 2.375rem !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .as-gallery-section {
-        grid-template-columns: 1fr;
-      }
-      .as-gallery-item {
-        height: 240px;
-      }
-      .as-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-</head>
+<html>
+<head><meta charset="UTF-8"></head>
 <body>
 
-  <!-- Header (Kalles-style) -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="logo">Aham Sadev</a>
-      <nav class="main-nav">
-        <a href="/collections/all">Shop</a>
-        <a href="/pages/about-us">About</a>
-        <a href="/pages/contact">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button aria-label="Search">🔍</button>
-        <button aria-label="Cart">🛒</button>
-      </div>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===== ALL STYLES SCOPED UNDER #as-about ===== */
+#as-about {
+  --as-maroon: #6D1F2F;
+  --as-maroon-dark: #521728;
+  --as-rose: #E8A4B4;
+  --as-blush: #F6D3DA;
+  --as-ivory: #FFF8F6;
+  --as-charcoal: #333;
+  --as-white: #FFF;
+  
+  --as-title-size: 52px;
+  --as-title-weight: 300;
+  --as-body-size: 14.5px;
+  --as-body-line: 2;
+  --as-section-padding: 110px 80px;
+  --as-btn-radius: 0px;
+  
+  font-family: 'Jost', sans-serif;
+  background: var(--as-ivory);
+  color: var(--as-charcoal);
+  overflow-x: hidden;
+}
+
+#as-about * { box-sizing: border-box; }
+
+/* ===== NEW: ANNOUNCEMENT BAR ===== */
+#as-about .as-announcement-bar {
+  background: var(--as-maroon);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+  overflow: hidden;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#as-about .as-announcement-bar .as-announce-slide {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  padding: 0 20px;
+  pointer-events: none;
+}
+#as-about .as-announcement-bar .as-announce-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+#as-about .as-announce-star {
+  color: var(--as-rose);
+  margin: 0 8px;
+  font-size: 10px;
+}
+
+/* ===== NEW: TOP HEADER ===== */
+#as-about .as-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: var(--as-ivory);
+  border-bottom: 1px solid rgba(232,164,180,0.25);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#as-about .as-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+#as-about .as-header-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--as-maroon);
+  letter-spacing: 3px;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: rgba(109,31,47,0.35);
+}
+#as-about .as-header-left p {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--as-rose);
+  margin: 0;
+}
+#as-about .as-header-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+#as-about .as-header-right button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--as-charcoal);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  position: relative;
+}
+#as-about .as-header-right button:hover {
+  color: var(--as-maroon);
+  transform: translateY(-1px);
+}
+#as-about .as-header-right svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  fill: none;
+}
+#as-about .as-cart-badge,
+#as-about .as-wish-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  background: var(--as-maroon);
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+}
+
+/* ----- EXISTING STYLES (completely unchanged) ----- */
+#as-about .as-section-label {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--as-rose); margin-bottom: 14px; font-weight: 500;
+  font-family: 'Jost', sans-serif;
+}
+#as-about .as-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--as-title-size);
+  font-weight: var(--as-title-weight);
+  color: var(--as-maroon);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+#as-about .as-section-desc {
+  font-size: var(--as-body-size);
+  line-height: var(--as-body-line);
+  color: #666;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+}
+#as-about .as-btn-primary {
+  background: var(--as-maroon); color: white;
+  padding: 14px 40px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; border: none; cursor: pointer;
+  font-family: 'Jost', sans-serif; font-weight: 500;
+  transition: all 0.3s; display: inline-block; text-decoration: none;
+  border-radius: var(--as-btn-radius);
+}
+#as-about .as-btn-primary:hover { background: var(--as-maroon-dark); transform: translateY(-1px); }
+#as-about .as-btn-outline {
+  background: transparent; color: var(--as-maroon);
+  padding: 13px 40px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; border: 1.5px solid var(--as-maroon);
+  cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 500;
+  transition: all 0.3s; display: inline-block; text-decoration: none;
+  border-radius: var(--as-btn-radius);
+}
+#as-about .as-btn-outline:hover { background: var(--as-blush); color: var(--as-maroon); }
+#as-about .as-ornament-divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 18px; margin: 14px 0 0; opacity: 0.5;
+}
+#as-about .as-ornament-divider::before,
+#as-about .as-ornament-divider::after {
+  content: ''; flex: 1; max-width: 80px; height: 1px;
+  background: var(--as-rose);
+}
+#as-about .as-ornament-divider span { color: var(--as-rose); font-size: 14px; letter-spacing: 3px; }
+@keyframes as-fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+#as-about .as-fade-up { animation: as-fadeUp 0.8s ease both; }
+#as-about .as-delay-1 { animation-delay: 0.1s; }
+#as-about .as-delay-2 { animation-delay: 0.22s; }
+#as-about .as-delay-3 { animation-delay: 0.36s; }
+#as-about .as-delay-4 { animation-delay: 0.5s; }
+
+/* Hero */
+#as-about .as-about-hero {
+  min-height: 88vh; display: flex; align-items: center; justify-content: center;
+  background: var(--as-ivory); position: relative; overflow: hidden;
+  text-align: center; padding: 100px 80px;
+}
+#as-about .as-about-hero::before {
+  content: ''; position: absolute; top: -20%; left: 50%;
+  transform: translateX(-50%); width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246,211,218,0.45) 0%, transparent 70%);
+  pointer-events: none;
+}
+#as-about .as-about-hero::after {
+  content: 'अहम् सदेव'; position: absolute; bottom: 5%; left: 50%;
+  transform: translateX(-50%); font-family: 'Cormorant Garamond', serif;
+  font-size: 120px; font-weight: 300; color: rgba(232,164,180,0.08);
+  white-space: nowrap; pointer-events: none; letter-spacing: 8px;
+}
+#as-about .as-about-hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+#as-about .as-about-hero-eyebrow {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--as-rose); font-weight: 500; margin-bottom: 28px;
+  font-family: 'Jost', sans-serif;
+}
+#as-about .as-about-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(64px, 10vw, 100px); font-weight: 300;
+  color: var(--as-maroon); line-height: 0.95; letter-spacing: -2px;
+  margin-bottom: 38px;
+}
+#as-about .as-about-hero-sub {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px;
+  font-style: italic; color: #888; font-weight: 300;
+  line-height: 1.85; max-width: 560px; margin: 0 auto 40px;
+}
+#as-about .as-about-hero-scroll {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(109,31,47,0.35); display: flex; align-items: center;
+  justify-content: center; gap: 10px; margin-top: 24px;
+  font-family: 'Jost', sans-serif;
+}
+#as-about .as-about-hero-scroll::after {
+  content: ''; display: inline-block; width: 1px; height: 40px;
+  background: rgba(109,31,47,0.25);
+}
+
+/* Meaning */
+#as-about .as-meaning-section {
+  padding: var(--as-section-padding);
+  background: var(--as-white);
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px;
+  align-items: center;
+}
+#as-about .as-meaning-left { position: relative; }
+#as-about .as-meaning-glyph {
+  font-family: 'Cormorant Garamond', serif; font-size: 220px;
+  font-weight: 300; color: rgba(232,164,180,0.18); line-height: 1;
+  position: absolute; top: -60px; left: -30px; pointer-events: none;
+  letter-spacing: -10px;
+}
+#as-about .as-meaning-left .as-section-title { font-size: 62px; position: relative; z-index: 1; }
+#as-about .as-meaning-left .as-section-desc { max-width: 440px; margin-top: 22px; }
+#as-about .as-meaning-right { display: flex; flex-direction: column; gap: 44px; }
+#as-about .as-meaning-word {
+  border-left: 2px solid var(--as-blush); padding-left: 28px;
+  position: relative;
+}
+#as-about .as-meaning-word::before {
+  content: ''; position: absolute; left: -2px; top: 0;
+  width: 2px; height: 0; background: var(--as-maroon);
+  transition: height 0.5s ease;
+}
+#as-about .as-meaning-word:hover::before { height: 100%; }
+#as-about .as-meaning-word-sanskrit {
+  font-family: 'Cormorant Garamond', serif; font-size: 44px;
+  font-weight: 300; color: var(--as-maroon); line-height: 1;
+  margin-bottom: 6px; font-style: italic;
+}
+#as-about .as-meaning-word-en {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--as-rose); font-weight: 500; margin-bottom: 14px;
+  font-family: 'Jost', sans-serif;
+}
+#as-about .as-meaning-word p {
+  font-size: 14px; line-height: 1.95; color: #777; font-weight: 300;
+  max-width: 360px; font-family: 'Jost', sans-serif;
+}
+
+/* Story */
+#as-about .as-story-section {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 620px;
+}
+#as-about .as-story-image { position: relative; overflow: hidden; }
+#as-about .as-story-image img { width: 100%; height: 100%; object-fit: cover; }
+#as-about .as-story-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(192,120,136,0.35) 0%, rgba(109,31,47,0.55) 100%);
+}
+#as-about .as-story-text {
+  background: var(--as-ivory); padding: 90px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+#as-about .as-story-year {
+  font-family: 'Cormorant Garamond', serif; font-size: 72px;
+  font-weight: 300; color: rgba(232,164,180,0.3); line-height: 1;
+  margin-bottom: -16px;
+}
+
+/* Different */
+#as-about .as-different-section {
+  padding: var(--as-section-padding);
+  background: var(--as-blush);
+}
+#as-about .as-different-header { text-align: center; margin-bottom: 70px; }
+#as-about .as-different-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+}
+#as-about .as-different-block {
+  background: var(--as-white); padding: 50px 36px 44px;
+  position: relative; transition: transform 0.3s;
+}
+#as-about .as-different-block:hover { transform: translateY(-6px); }
+#as-about .as-different-block::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: linear-gradient(to right, var(--as-blush), var(--as-maroon));
+  transform: scaleX(0); transition: transform 0.4s; transform-origin: left;
+}
+#as-about .as-different-block:hover::before { transform: scaleX(1); }
+#as-about .as-different-icon { font-size: 28px; margin-bottom: 22px; display: block; }
+#as-about .as-different-block h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: 26px;
+  font-weight: 400; color: var(--as-maroon); margin-bottom: 16px;
+}
+#as-about .as-different-block p {
+  font-size: 13.5px; line-height: 1.95; color: #777; font-weight: 300;
+}
+#as-about .as-different-num {
+  position: absolute; top: 20px; right: 24px;
+  font-family: 'Cormorant Garamond', serif; font-size: 52px;
+  font-weight: 300; color: rgba(232,164,180,0.2);
+}
+
+/* Woman */
+#as-about .as-woman-section {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 600px;
+}
+#as-about .as-woman-text {
+  background: var(--as-maroon); padding: 90px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+#as-about .as-woman-text::before {
+  content: 'अहम्'; position: absolute; bottom: -30px; right: -10px;
+  font-family: 'Cormorant Garamond', serif; font-size: 160px;
+  font-weight: 300; color: rgba(255,255,255,0.06);
+}
+#as-about .as-woman-text .as-section-label { color: var(--as-rose); }
+#as-about .as-woman-text .as-section-title { color: white; font-size: 52px; }
+#as-about .as-woman-text .as-section-desc { color: rgba(255,255,255,0.65); margin-top: 24px; max-width: 420px; }
+#as-about .as-woman-traits { display: flex; flex-direction: column; gap: 14px; margin-top: 38px; }
+#as-about .as-woman-trait {
+  display: flex; align-items: center; gap: 14px;
+  color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 300;
+}
+#as-about .as-woman-trait::before { content: ''; width: 24px; height: 1px; background: var(--as-rose); }
+#as-about .as-woman-image { position: relative; overflow: hidden; min-height: 500px; }
+#as-about .as-woman-image img { width: 100%; height: 100%; object-fit: cover; }
+#as-about .as-woman-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(145deg, rgba(240,200,212,0.15) 0%, rgba(204,136,152,0.2) 100%);
+}
+
+/* Gallery */
+#as-about .as-gallery-section {
+  display: grid; grid-template-columns: repeat(4,1fr); height: 340px; overflow: hidden;
+}
+#as-about .as-gallery-item { position: relative; overflow: hidden; }
+#as-about .as-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+#as-about .as-gallery-item:hover img { transform: scale(1.06); }
+#as-about .as-gallery-item-overlay {
+  position: absolute; inset: 0; background: rgba(109,31,47,0);
+  transition: background 0.4s; display: flex; align-items: flex-end; padding: 20px;
+}
+#as-about .as-gallery-item:hover .as-gallery-item-overlay { background: rgba(109,31,47,0.4); }
+#as-about .as-gallery-caption {
+  color: white; font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; font-style: italic; opacity: 0; transition: opacity 0.4s;
+}
+#as-about .as-gallery-item:hover .as-gallery-caption { opacity: 1; }
+
+/* Philosophy */
+#as-about .as-philosophy-section {
+  padding: 120px 80px; background: var(--as-ivory);
+  text-align: center; position: relative; overflow: hidden;
+}
+#as-about .as-philosophy-section::before,
+#as-about .as-philosophy-section::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%); border-radius: 50%; pointer-events: none;
+}
+#as-about .as-philosophy-section::before { width: 600px; height: 600px; border: 1px solid rgba(232,164,180,0.2); }
+#as-about .as-philosophy-section::after { width: 400px; height: 400px; border: 1px solid rgba(232,164,180,0.15); }
+#as-about .as-philosophy-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+#as-about .as-philosophy-quote {
+  font-family: 'Cormorant Garamond', serif; font-size: 72px;
+  font-weight: 300; font-style: italic; color: var(--as-maroon);
+  line-height: 1; margin-bottom: 34px;
+}
+#as-about .as-philosophy-text {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  font-style: italic; color: #888; line-height: 1.9; font-weight: 300;
+}
+#as-about .as-philosophy-byline {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--as-rose); font-weight: 500;
+}
+
+/* CTA */
+#as-about .as-about-cta {
+  padding: var(--as-section-padding);
+  background: var(--as-blush); text-align: center; position: relative;
+}
+#as-about .as-about-cta::before {
+  content: '✦'; position: absolute; top: 20px; left: 50%;
+  transform: translateX(-50%); font-size: 11px; color: var(--as-rose); opacity: 0.5;
+}
+#as-about .as-about-cta .as-section-title { font-size: 56px; max-width: 560px; margin: 16px auto 28px; }
+#as-about .as-about-cta .as-section-desc { max-width: 440px; margin: 0 auto 44px; }
+#as-about .as-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  #as-about .as-different-grid { grid-template-columns: repeat(2,1fr); }
+  #as-about .as-gallery-section { grid-template-columns: repeat(2,1fr); height: auto; }
+  #as-about .as-gallery-item { height: 260px; }
+}
+@media (max-width: 768px) {
+  #as-about .as-top-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  #as-about .as-about-hero { padding: 80px 28px; }
+  #as-about .as-meaning-section { grid-template-columns: 1fr; gap: 50px; padding: 80px 28px; }
+  #as-about .as-story-section { grid-template-columns: 1fr; }
+  #as-about .as-story-text { padding: 60px 28px; }
+  #as-about .as-different-section { padding: 80px 28px; }
+  #as-about .as-different-grid { grid-template-columns: 1fr; }
+  #as-about .as-woman-section { grid-template-columns: 1fr; }
+  #as-about .as-woman-text { padding: 70px 28px; }
+  #as-about .as-philosophy-section { padding: 80px 28px; }
+  #as-about .as-philosophy-quote { font-size: 48px; }
+  #as-about .as-about-cta { padding: 80px 28px; }
+  #as-about .as-section-title { font-size: 38px !important; }
+}
+@media (max-width: 480px) {
+  #as-about .as-gallery-section { grid-template-columns: 1fr; }
+  #as-about .as-gallery-item { height: 240px; }
+  #as-about .as-cta-buttons { flex-direction: column; align-items: center; }
+}
+</style>
+
+<div id="as-about">
+
+  <!-- ===== NEW: ANNOUNCEMENT BAR ===== -->
+  <div class="as-announcement-bar" id="as-announce-bar">
+    <div class="as-announce-slide active">
+      <span class="as-announce-star">✦</span>
+      Limited Edition Handcrafted Suits
+      <span class="as-announce-star">✦</span>
     </div>
-  </header>
-
-  <!-- Main Content: About Us Page (adapted from provided HTML) -->
-  <div id="as-about">
-    <!-- Hero -->
-    <section class="as-about-hero">
-      <div class="as-about-hero-inner">
-        <p class="as-about-hero-eyebrow as-fade-up">Our Identity</p>
-        <h1 class="as-about-hero-title as-fade-up as-delay-1">I Am<br>Forever</h1>
-        <p class="as-about-hero-sub as-fade-up as-delay-2">
-          Some things are not made to follow seasons.<br>
-          They are made to endure — in fabric, in feeling,<br>
-          in the quiet certainty of who you are.
-        </p>
-        <div class="as-ornament-divider as-fade-up as-delay-3"><span>✦</span></div>
-        <p class="as-about-hero-scroll as-fade-up as-delay-4">Scroll to discover</p>
-      </div>
-    </section>
-
-    <!-- Meaning -->
-    <section class="as-meaning-section">
-      <div class="as-meaning-left">
-        <div class="as-meaning-glyph">अ</div>
-        <p class="as-section-label">The Name</p>
-        <h2 class="as-section-title">The<br>Meaning</h2>
-        <p class="as-section-desc">Every great brand begins with an intention. Ours began with a word — two words, in fact — drawn from the oldest language of introspection, Sanskrit. Together, they form not just a name, but a declaration.</p>
-      </div>
-      <div class="as-meaning-right">
-        <div class="as-meaning-word">
-          <p class="as-meaning-word-sanskrit">Aham</p>
-          <p class="as-meaning-word-en">The Self</p>
-          <p>In Sanskrit philosophy, Aham is the seat of consciousness — the innermost self that exists before titles, before roles, before the world names you. It is the voice that says: I am here. I am enough. I am real.</p>
-        </div>
-        <div class="as-meaning-word">
-          <p class="as-meaning-word-sanskrit">Sadev</p>
-          <p class="as-meaning-word-en">The Eternal</p>
-          <p>Sadev speaks of permanence — of things that do not diminish with time, but deepen. A woman's grace. A fabric's story. A craft handed down through generations. What is true does not fade. It only becomes more itself.</p>
-        </div>
-        <div class="as-meaning-word">
-          <p class="as-meaning-word-sanskrit">Aham Sadev</p>
-          <p class="as-meaning-word-en">I Am Forever</p>
-          <p>Together, a quiet manifesto. Not a boast — a remembering. That you, as you are, have always been enough. That beauty rooted in identity is the only beauty that lasts.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Story -->
-    <section class="as-story-section">
-      <div class="as-story-image">
-        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80&auto=format&fit=crop" alt="Indian artisan weaving traditional fabric — Aham Sadev craftsmanship" loading="lazy">
-        <div class="as-story-image-overlay"></div>
-      </div>
-      <div class="as-story-text">
-        <div class="as-story-year">2018</div>
-        <p class="as-section-label">Where It Began</p>
-        <h2 class="as-section-title">Our<br>Beginning</h2>
-        <p class="as-section-desc">Aham Sadev was born from a deeply personal belief — that Indian women deserve clothing as considered and complex as they are. Not fast fashion repackaged in ethnic motifs, but garments built on intention: sourced with care, woven with patience, and designed to carry meaning.</p>
-        <p class="as-section-desc" style="margin-top:18px;">We began by walking through the textile markets of Varanasi, Chanderi, and Lucknow — sitting with weavers, understanding their craft, learning the vocabulary of silk and thread. Every collection since has been a conversation between that heritage and the modern woman who wears it.</p>
-        <p class="as-section-desc" style="margin-top:18px;">We believe in slow fashion. In fewer pieces, made better. In clothing that does not ask you to be a trend — only to be yourself.</p>
-      </div>
-    </section>
-
-    <!-- Different -->
-    <section class="as-different-section">
-      <div class="as-different-header">
-        <p class="as-section-label">Our Promise</p>
-        <h2 class="as-section-title">What Makes Us Different</h2>
-      </div>
-      <div class="as-different-grid">
-        <div class="as-different-block">
-          <span class="as-different-num">01</span>
-          <span class="as-different-icon">🧵</span>
-          <h3>Curated, Not<br>Mass Produced</h3>
-          <p>Every piece in our collection is chosen with deliberate restraint. We do not produce in excess. We curate with intention — because scarcity, here, is not a strategy. It is a value.</p>
-        </div>
-        <div class="as-different-block">
-          <span class="as-different-num">02</span>
-          <span class="as-different-icon">🪡</span>
-          <h3>Rooted<br>in Craft</h3>
-          <p>We work directly with artisans from North India's textile heartland — Banarasi weavers, Chikankari embroiderers, Chanderi handloom families. Their skill is our material.</p>
-        </div>
-        <div class="as-different-block">
-          <span class="as-different-num">03</span>
-          <span class="as-different-icon">🌿</span>
-          <h3>Timeless<br>Design</h3>
-          <p>Our silhouettes are drawn with a quiet confidence. We do not chase seasons. We design for the woman who will still wear this piece five years from today, and love it more.</p>
-        </div>
-        <div class="as-different-block">
-          <span class="as-different-num">04</span>
-          <span class="as-different-icon">♾️</span>
-          <h3>Made<br>to Stay</h3>
-          <p>Premium fabrics, considered construction, and a refusal to compromise. Each garment is built to endure — in structure, in colour, in the quiet dignity of a thing made well.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Woman -->
-    <section class="as-woman-section">
-      <div class="as-woman-text">
-        <p class="as-section-label">Our Muse</p>
-        <h2 class="as-section-title">The Aham<br>Sadev Woman</h2>
-        <p class="as-section-desc">She does not need to announce herself. She enters a room and the room adjusts. She is drawn to things with stories — garments that remember a weaver's hands, silhouettes that have stood the test of time.</p>
-        <div class="as-woman-traits">
-          <p class="as-woman-trait">Confident without performance</p>
-          <p class="as-woman-trait">Soft, yet unshakeable</p>
-          <p class="as-woman-trait">Rooted in heritage, open to the world</p>
-          <p class="as-woman-trait">She dresses for herself, always</p>
-          <p class="as-woman-trait">She carries her culture with pride</p>
-        </div>
-      </div>
-      <div class="as-woman-image">
-        <img src="https://images.unsplash.com/photo-1610189019599-c2e0ca49a95d?w=900&q=80&auto=format&fit=crop" alt="The Aham Sadev woman — timeless Indian elegance" loading="lazy">
-        <div class="as-woman-image-overlay"></div>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="as-gallery-section">
-      <div class="as-gallery-item">
-        <img src="https://images.unsplash.com/photo-1605762309695-0d2c1c3e7986?w=600&q=80&auto=format&fit=crop" alt="Handwoven Indian silk fabric detail" loading="lazy">
-        <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Handwoven Silk</span></div>
-      </div>
-      <div class="as-gallery-item">
-        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80&auto=format&fit=crop" alt="Chikankari embroidery close-up" loading="lazy">
-        <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Chikankari Craft</span></div>
-      </div>
-      <div class="as-gallery-item">
-        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80&auto=format&fit=crop" alt="Indian textile artisan at work" loading="lazy">
-        <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Artisan Heritage</span></div>
-      </div>
-      <div class="as-gallery-item">
-        <img src="https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=600&q=80&auto=format&fit=crop" alt="Elegant Indian ethnic suit fabric" loading="lazy">
-        <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Chanderi Weaves</span></div>
-      </div>
-    </section>
-
-    <!-- Philosophy -->
-    <section class="as-philosophy-section">
-      <div class="as-philosophy-inner">
-        <p class="as-section-label" style="margin-bottom:30px;">Our Philosophy</p>
-        <p class="as-philosophy-quote">"I Am Forever"</p>
-        <p class="as-philosophy-text">
-          We do not believe in dressing for a moment.<br>
-          We believe in dressing for eternity — in small, quiet ways.<br>
-          A fabric that breathes. A silhouette that speaks.<br>
-          A garment that becomes more yours with every wearing.
-        </p>
-        <div class="as-ornament-divider" style="margin:28px 0;"><span>✦</span></div>
-        <p class="as-philosophy-byline">Aham Sadev · Est. 2018 · Crafted in India</p>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="as-about-cta">
-      <p class="as-section-label">Begin Here</p>
-      <h2 class="as-section-title">Wear Your<br>Forever</h2>
-      <p class="as-section-desc">Every collection is an invitation to return to yourself — through the language of fabric, craft, and quiet elegance.</p>
-      <div class="as-cta-buttons">
-        <a href="/collections/all" class="as-btn-primary">Explore Collection</a>
-        <a href="/pages/contact" class="as-btn-outline">Get in Touch</a>
-      </div>
-    </section>
+    <div class="as-announce-slide">
+      <span class="as-announce-star">✦</span>
+      Festive Collection now Live!
+      <span class="as-announce-star">✦</span>
+    </div>
+    <div class="as-announce-slide">
+      <span class="as-announce-star">✦</span>
+      Free Worldwide Shipping on Orders Above ₹7500+
+      <span class="as-announce-star">✦</span>
+    </div>
+    <div class="as-announce-slide">
+      <span class="as-announce-star">✦</span>
+      Global Shipping Available
+      <span class="as-announce-star">✦</span>
+    </div>
   </div>
 
-  <!-- Footer (Kalles-style) -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col">
-        <h3>Aham Sadev</h3>
-        <p style="font-size:0.875rem;color:#666;">Timeless elegance rooted in Indian craftsmanship.</p>
+  <!-- ===== NEW: TOP HEADER ===== -->
+  <div class="as-top-header">
+    <div class="as-header-left">
+      <h2>Aham Sadev</h2>
+      <p>I Am Forever</p>
+    </div>
+    <div class="as-header-right">
+      <button aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button aria-label="Account">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
+      <button aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        <span class="as-wish-badge">0</span>
+      </button>
+      <button aria-label="Cart" style="position:relative;">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span class="as-cart-badge">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="as-about-hero">
+    <div class="as-about-hero-inner">
+      <p class="as-about-hero-eyebrow as-fade-up">Our Identity</p>
+      <h1 class="as-about-hero-title as-fade-up as-delay-1">I Am<br>Forever</h1>
+      <p class="as-about-hero-sub as-fade-up as-delay-2">
+        Some things are not made to follow seasons.<br>
+        They are made to endure — in fabric, in feeling,<br>
+        in the quiet certainty of who you are.
+      </p>
+      <div class="as-ornament-divider as-fade-up as-delay-3"><span>✦</span></div>
+      <p class="as-about-hero-scroll as-fade-up as-delay-4">Scroll to discover</p>
+    </div>
+  </section>
+
+  <!-- ==================== MEANING ==================== -->
+  <section class="as-meaning-section">
+    <div class="as-meaning-left">
+      <div class="as-meaning-glyph">अ</div>
+      <p class="as-section-label">The Name</p>
+      <h2 class="as-section-title">The<br>Meaning</h2>
+      <p class="as-section-desc">
+        Every great brand begins with an intention. Ours began with a word —
+        two words, in fact — drawn from the oldest language of introspection,
+        Sanskrit. Together, they form not just a name, but a declaration.
+      </p>
+    </div>
+    <div class="as-meaning-right">
+      <div class="as-meaning-word">
+        <p class="as-meaning-word-sanskrit">Aham</p>
+        <p class="as-meaning-word-en">The Self</p>
+        <p>In Sanskrit philosophy, Aham is the seat of consciousness — the innermost self that exists before titles, before roles, before the world names you. It is the voice that says: I am here. I am enough. I am real.</p>
       </div>
-      <div class="footer-col">
-        <h3>Shop</h3>
-        <ul>
-          <li><a href="/collections/all">All Products</a></li>
-          <li><a href="/collections/kurta-sets">Kurta Sets</a></li>
-          <li><a href="/collections/sarees">Sarees</a></li>
-        </ul>
+      <div class="as-meaning-word">
+        <p class="as-meaning-word-sanskrit">Sadev</p>
+        <p class="as-meaning-word-en">The Eternal</p>
+        <p>Sadev speaks of permanence — of things that do not diminish with time, but deepen. A woman's grace. A fabric's story. A craft handed down through generations. What is true does not fade. It only becomes more itself.</p>
       </div>
-      <div class="footer-col">
-        <h3>Support</h3>
-        <ul>
-          <li><a href="/pages/contact">Contact</a></li>
-          <li><a href="/pages/shipping">Shipping</a></li>
-          <li><a href="/pages/returns">Returns</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Follow</h3>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Pinterest</a></li>
-        </ul>
+      <div class="as-meaning-word">
+        <p class="as-meaning-word-sanskrit">Aham Sadev</p>
+        <p class="as-meaning-word-en">I Am Forever</p>
+        <p>Together, a quiet manifesto. Not a boast — a remembering. That you, as you are, have always been enough. That beauty rooted in identity is the only beauty that lasts.</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Aham Sadev. All rights reserved.</p>
+  </section>
+
+  <!-- ==================== STORY ==================== -->
+  <section class="as-story-section">
+    <div class="as-story-image">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80&auto=format&fit=crop" alt="Indian artisan weaving" loading="lazy">
+      <div class="as-story-image-overlay"></div>
     </div>
-  </footer>
+    <div class="as-story-text">
+      <div class="as-story-year">2026</div>
+      <p class="as-section-label">Where It Began</p>
+      <h2 class="as-section-title">Our<br>Beginning</h2>
+      <p class="as-section-desc">
+        Aham Sadev was born from a deeply personal belief — that Indian women deserve
+        clothing as considered and complex as they are. Not fast fashion repackaged
+        in ethnic motifs, but garments built on intention: sourced with care,
+        woven with patience, and designed to carry meaning.
+      </p>
+      <p class="as-section-desc" style="margin-top:18px;">
+        We began by walking through the textile markets of Varanasi, Chanderi, and
+        Lucknow — sitting with weavers, understanding their craft, learning the
+        vocabulary of silk and thread. Every collection since has been a conversation
+        between that heritage and the modern woman who wears it.
+      </p>
+      <p class="as-section-desc" style="margin-top:18px;">
+        We believe in slow fashion. In fewer pieces, made better. In clothing that
+        does not ask you to be a trend — only to be yourself.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== DIFFERENT ==================== -->
+  <section class="as-different-section">
+    <div class="as-different-header">
+      <p class="as-section-label">Our Promise</p>
+      <h2 class="as-section-title">What Makes Us Different</h2>
+    </div>
+    <div class="as-different-grid">
+      <div class="as-different-block"><span class="as-different-num">01</span><span class="as-different-icon">🧵</span><h3>Curated, Not<br>Mass Produced</h3><p>Every piece in our collection is chosen with deliberate restraint. We do not produce in excess. We curate with intention — because scarcity, here, is not a strategy. It is a value.</p></div>
+      <div class="as-different-block"><span class="as-different-num">02</span><span class="as-different-icon">🪡</span><h3>Rooted<br>in Craft</h3><p>We work directly with artisans from India's textile heartlands — Banarasi weavers, Chikankari embroiderers, Chanderi handloom families. Their skill is our material.</p></div>
+      <div class="as-different-block"><span class="as-different-num">03</span><span class="as-different-icon">🌿</span><h3>Timeless<br>Design</h3><p>Our silhouettes are drawn with a quiet confidence. We do not chase seasons. We design for the woman who will still wear this piece five years from today, and love it more.</p></div>
+      <div class="as-different-block"><span class="as-different-num">04</span><span class="as-different-icon">♾️</span><h3>Made<br>to Stay</h3><p>Premium fabrics, considered construction, and a refusal to compromise. Each garment is built to endure — in structure, in colour, in the quiet dignity of a thing made well.</p></div>
+    </div>
+  </section>
+
+  <!-- ==================== WOMAN ==================== -->
+  <section class="as-woman-section">
+    <div class="as-woman-text">
+      <p class="as-section-label">Our Muse</p>
+      <h2 class="as-section-title">The Aham<br>Sadev Woman</h2>
+      <p class="as-section-desc">
+        She does not need to announce herself. She enters a room and the room
+        adjusts. She is drawn to things with stories — garments that remember
+        a weaver's hands, silhouettes that have stood the test of time.
+      </p>
+      <div class="as-woman-traits">
+        <p class="as-woman-trait">Confident without performance</p>
+        <p class="as-woman-trait">Soft, yet unshakeable</p>
+        <p class="as-woman-trait">Rooted in heritage, open to the world</p>
+        <p class="as-woman-trait">She dresses for herself, always</p>
+        <p class="as-woman-trait">She carries her culture with pride</p>
+      </div>
+    </div>
+    <div class="as-woman-image">
+      <img src="https://cdn.shopify.com/s/files/1/0727/8549/4085/files/Gemini_Generated_Image_o09f5go09f5go09f_f3846358-6fb4-4c36-9405-59c362ff4884.png?v=1776930334" alt="Aham Sadev woman" loading="lazy">
+      <div class="as-woman-image-overlay"></div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section class="as-gallery-section">
+    <div class="as-gallery-item"><img src="https://cdn.shopify.com/s/files/1/0727/8549/4085/files/lucknowiChikankarisuit3_a3fdfdc3-fdf6-4cb7-864a-ec8dde8ed3ef.jpg?v=1776759410" alt="Handwoven silk"><div class="as-gallery-item-overlay"><span class="as-gallery-caption">Handwoven Silk</span></div></div>
+    <div class="as-gallery-item"><img src="https://cdn.shopify.com/s/files/1/0727/8549/4085/files/lucknowiChikankarisuit6.jpg?v=1776759223" alt="Chikankari"><div class="as-gallery-item-overlay"><span class="as-gallery-caption">Chikankari Craft</span></div></div>
+    <div class="as-gallery-item"><img src="https://cdn.shopify.com/s/files/1/0727/8549/4085/files/lucknowiChikankarisuit5.webp?v=1776759223" alt="Artisan"><div class="as-gallery-item-overlay"><span class="as-gallery-caption">Artisan Heritage</span></div></div>
+    <div class="as-gallery-item"><img src="https://cdn.shopify.com/s/files/1/0727/8549/4085/files/lucknowiChikankarisuit7.jpg?v=1776759223" alt="Chanderi"><div class="as-gallery-item-overlay"><span class="as-gallery-caption">Chanderi Weaves</span></div></div>
+  </section>
+
+  <!-- ==================== PHILOSOPHY ==================== -->
+  <section class="as-philosophy-section">
+    <div class="as-philosophy-inner">
+      <p class="as-section-label" style="margin-bottom:30px;">Our Philosophy</p>
+      <p class="as-philosophy-quote">"I Am Forever"</p>
+      <p class="as-philosophy-text">
+        We do not believe in dressing for a moment.<br>
+        We believe in dressing for eternity — in small, quiet ways.<br>
+        A fabric that breathes. A silhouette that speaks.<br>
+        A garment that becomes more yours with every wearing.
+      </p>
+      <div class="as-ornament-divider" style="margin:28px 0;"><span>✦</span></div>
+      <p class="as-philosophy-byline">Aham Sadev · Est. 2026 · Crafted in India</p>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="as-about-cta">
+    <p class="as-section-label">Begin Here</p>
+    <h2 class="as-section-title">Wear Your<br>Forever</h2>
+    <p class="as-section-desc">
+      Every collection is an invitation to return to yourself —
+      through the language of fabric, craft, and quiet elegance.
+    </p>
+    <div class="as-cta-buttons">
+      <a href="/collections/all" class="as-btn-primary">Explore Collection</a>
+      <a href="/pages/contact" class="as-btn-outline">Get in Touch</a>
+    </div>
+  </section>
+</div>
+
+<script>
+  (function() {
+    var slides = document.querySelectorAll('#as-announce-bar .as-announce-slide');
+    var current = 0;
+    if (slides.length < 2) return;
+    setInterval(function() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3500);
+  })();
+</script>
 
 </body>
 </html>
