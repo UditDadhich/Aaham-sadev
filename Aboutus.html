@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Aham Sadev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ── SHOPIFY / KALLES THEME DESIGN SYSTEM VARIATION ── */
+    #as-about {
+      --kalles-maroon:      #6D1F2F;
+      --kalles-maroon-dark: #521728;
+      --kalles-rose:        #E8A4B4;
+      --kalles-blush:       #F6D3DA;
+      --kalles-ivory:       #FFF8F6;
+      --kalles-charcoal:    #222222;
+      --kalles-body-grey:   #666666;
+      --kalles-border-clr:  #e5e5e5;
+      --kalles-white:       #FFFFFF;
+      --kalles-transition:  all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      font-family: 'Jost', sans-serif;
+      color: var(--kalles-charcoal);
+      background-color: var(--kalles-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    #as-about *, #as-about *::before, #as-about *::after { 
+      box-sizing: border-box; 
+    }
+
+    /* Layout Containers */
+    #as-about .kalles-container {
+      width: 100%;
+      max-width: 1170px;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    /* Global Section Typography Typography Scale */
+    #as-about .as-section-label { 
+      font-size: 11px; 
+      letter-spacing: 3px; 
+      text-transform: uppercase; 
+      color: var(--kalles-rose); 
+      margin: 0 0 12px 0; 
+      font-weight: 600; 
+    }
+
+    #as-about .as-section-title { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 42px; 
+      font-weight: 400; 
+      color: var(--kalles-maroon); 
+      line-height: 1.2; 
+      margin: 0 0 20px 0; 
+    }
+
+    #as-about .as-section-desc { 
+      font-size: 14px; 
+      color: var(--kalles-body-grey); 
+      line-height: 1.75; 
+      font-weight: 400; 
+      margin: 0 0 16px 0;
+    }
+
+    /* Interactive Component Elements */
+    #as-about .as-btn-primary { 
+      background: var(--kalles-maroon); 
+      color: var(--kalles-white); 
+      padding: 14px 35px; 
+      font-size: 12px; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      border: 1px solid var(--kalles-maroon); 
+      cursor: pointer; 
+      font-weight: 600; 
+      transition: var(--kalles-transition); 
+      display: inline-block; 
+      text-decoration: none; 
+      line-height: 1.2;
+      border-radius: 0px;
+      text-align: center;
+    }
+
+    #as-about .as-btn-primary:hover { 
+      background: var(--kalles-maroon-dark); 
+      border-color: var(--kalles-maroon-dark);
+      color: var(--kalles-white); 
+    }
+
+    #as-about .as-btn-outline { 
+      background: transparent; 
+      color: var(--kalles-maroon); 
+      padding: 14px 35px; 
+      font-size: 12px; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      border: 1px solid var(--kalles-maroon); 
+      cursor: pointer; 
+      font-weight: 600; 
+      transition: var(--kalles-transition); 
+      display: inline-block; 
+      text-decoration: none; 
+      line-height: 1.2; 
+      border-radius: 0px;
+      text-align: center;
+    }
+
+    #as-about .as-btn-outline:hover { 
+      background: var(--kalles-maroon); 
+      color: var(--kalles-white); 
+    }
+
+    /* Custom Form Fields */
+    #as-about .as-form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    #as-about .as-form-input {
+      width: 100%;
+      height: 45px;
+      background: var(--kalles-white);
+      border: 1px solid var(--kalles-border-clr);
+      padding: 0 15px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      color: var(--kalles-charcoal);
+      transition: var(--kalles-transition);
+      outline: none;
+    }
+
+    #as-about .as-form-input:focus {
+      border-color: var(--kalles-maroon);
+    }
+
+    #as-about .as-form-textarea {
+      width: 100%;
+      min-height: 120px;
+      background: var(--kalles-white);
+      border: 1px solid var(--kalles-border-clr);
+      padding: 12px 15px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      color: var(--kalles-charcoal);
+      transition: var(--kalles-transition);
+      outline: none;
+      resize: vertical;
+    }
+
+    #as-about .as-form-textarea:focus {
+      border-color: var(--kalles-maroon);
+    }
+
+    #as-about .as-ornament-divider { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 15px; 
+      margin: 20px 0; 
+    }
+    #as-about .as-ornament-divider::before, #as-about .as-ornament-divider::after { 
+      content: ''; 
+      width: 50px; 
+      height: 1px; 
+      background: var(--kalles-rose); 
+    }
+    #as-about .as-ornament-divider span { 
+      color: var(--kalles-rose); 
+      font-size: 12px; 
+    }
+
+    /* 1. HERO COMPONENT */
+    #as-about .as-about-hero { 
+      min-height: 75vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      background-color: var(--kalles-ivory); 
+      position: relative; 
+      text-align: center; 
+      padding: 80px 20px; 
+    }
+    #as-about .as-about-hero::after { 
+      content: 'अहम् सदेव'; 
+      position: absolute; 
+      bottom: 5%; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(60px, 12vw, 130px); 
+      font-weight: 300; 
+      color: rgba(109, 31, 47, 0.04); 
+      white-space: nowrap; 
+      pointer-events: none; 
+      letter-spacing: 4px; 
+    }
+    #as-about .as-about-hero-inner { max-width: 700px; margin: 0 auto; }
+    #as-about .as-about-hero-title { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(50px, 8vw, 84px); 
+      font-weight: 300; 
+      color: var(--kalles-maroon); 
+      line-height: 1.05; 
+      margin-bottom: 25px; 
+    }
+    #as-about .as-about-hero-sub { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 20px; 
+      font-style: italic; 
+      color: var(--kalles-body-grey); 
+      line-height: 1.6; 
+      margin-bottom: 30px; 
+    }
+
+    /* 2. MEANING COMPONENT */
+    #as-about .as-meaning-section { padding: 100px 0; background: var(--kalles-white); }
+    #as-about .as-meaning-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: start; }
+    #as-about .as-meaning-left { position: relative; }
+    #as-about .as-meaning-glyph { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 180px; 
+      color: rgba(232,164,180,0.12); 
+      line-height: 1; 
+      position: absolute; 
+      top: -50px; 
+      left: -20px; 
+      pointer-events: none; 
+    }
+    #as-about .as-meaning-right { display: flex; flex-direction: column; gap: 40px; }
+    #as-about .as-meaning-word { border-left: 2px solid var(--kalles-blush); padding-left: 25px; transition: var(--kalles-transition); }
+    #as-about .as-meaning-word:hover { border-left-color: var(--kalles-maroon); }
+    #as-about .as-meaning-word-sanskrit { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--kalles-maroon); margin: 0 0 4px 0; font-style: italic; }
+    #as-about .as-meaning-word-en { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--kalles-rose); font-weight: 600; margin-bottom: 10px; }
+
+    /* 3. STORY COMPONENT (SPLIT) */
+    #as-about .as-story-section { background-color: var(--kalles-ivory); display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+    #as-about .as-story-image { height: 100%; min-height: 550px; position: relative; }
+    #as-about .as-story-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; }
+    #as-about .as-story-text { padding: 80px 10%; }
+    #as-about .as-story-year { font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; color: rgba(232,164,180,0.25); line-height: 1; margin-bottom: 5px; }
+
+    /* 4. CARDS GRID */
+    #as-about .as-different-section { padding: 100px 0; background: var(--kalles-blush); }
+    #as-about .as-different-header { text-align: center; margin-bottom: 60px; }
+    #as-about .as-different-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    #as-about .as-different-block { background: var(--kalles-white); padding: 40px 25px; position: relative; transition: var(--kalles-transition); border: 1px solid transparent; text-align: center; }
+    #as-about .as-different-block:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    #as-about .as-different-icon { font-size: 24px; margin-bottom: 15px; display: block; }
+    #as-about .as-different-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--kalles-maroon); margin: 0 0 12px 0; line-height: 1.3; }
+    #as-about .as-different-num { position: absolute; top: 15px; right: 20px; font-family: 'Cormorant Garamond', serif; font-size: 36px; color: rgba(232,164,180,0.25); font-weight: 300; line-height: 1; }
+
+    /* 5. IDENTITY COMPONENT (SPLIT) */
+    #as-about .as-woman-section { display: grid; grid-template-columns: 1fr 1fr; align-items: center; background-color: var(--kalles-maroon); }
+    #as-about .as-woman-text { padding: 80px 10%; position: relative; }
+    #as-about .as-woman-text .as-section-title { color: var(--kalles-white); }
+    #as-about .as-woman-text .as-section-desc { color: rgba(255,255,255,0.7); }
+    #as-about .as-woman-traits { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+    #as-about .as-woman-trait { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 400; margin: 0; }
+    #as-about .as-woman-trait::before { content: '✦'; color: var(--kalles-rose); font-size: 10px; }
+    #as-about .as-woman-image { height: 100%; min-height: 550px; position: relative; }
+    #as-about .as-woman-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; top:0; left:0; }
+
+    /* 6. INSTAGRAM/CRAFT STRIP */
+    #as-about .as-gallery-section { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--kalles-border-clr); gap: 1px; }
+    #as-about .as-gallery-item { position: relative; overflow: hidden; padding-bottom: 100%; /* Perfect AspectRatio 1:1 Box */ }
+    #as-about .as-gallery-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    #as-about .as-gallery-item-overlay { position: absolute; inset: 0; background: rgba(109,31,47,0); transition: var(--kalles-transition); display: flex; align-items: center; justify-content: center; padding: 20px; }
+    #as-about .as-gallery-item:hover img { transform: scale(1.08); }
+    #as-about .as-gallery-item:hover .as-gallery-item-overlay { background: rgba(109,31,47,0.65); }
+    #as-about .as-gallery-caption { color: var(--kalles-white); font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; opacity: 0; transition: var(--kalles-transition); transform: translateY(10px); }
+    #as-about .as-gallery-item:hover .as-gallery-caption { opacity: 1; transform: translateY(0); }
+
+    /* 7. PHILOSOPHY */
+    #as-about .as-philosophy-section { padding: 100px 0; background: var(--kalles-ivory); text-align: center; }
+    #as-about .as-philosophy-inner { max-width: 650px; margin: 0 auto; }
+    #as-about .as-philosophy-quote { font-family: 'Cormorant Garamond', serif; font-size: 54px; font-weight: 300; font-style: italic; color: var(--kalles-maroon); line-height: 1.1; margin-bottom: 25px; }
+    #as-about .as-philosophy-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--kalles-body-grey); line-height: 1.8; margin-bottom: 25px; }
+    #as-about .as-philosophy-byline { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--kalles-rose); font-weight: 600; }
+
+    /* 8. EMBEDDED CONTEXT BLOCK / CTA / CONTACT */
+    #as-about .as-about-cta { padding: 90px 0; background: var(--kalles-blush); text-align: center; border-top: 1px solid rgba(109,31,47,0.05); }
+    #as-about .as-cta-container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+    #as-about .as-cta-left { text-align: left; }
+    #as-about .as-cta-buttons { display: flex; gap: 15px; margin-top: 25px; }
+    
+    /* RESPONSIVE LAYOUT BREAKPOINTS (Shopify Mobile Standards) */
+    @media (max-width: 1024px) {
+      #as-about .as-meaning-grid { gap: 40px; }
+      #as-about .as-different-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+      #as-about .as-cta-container { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; }
+    }
+    
+    @media (max-width: 768px) {
+      #as-about .as-section-title { font-size: 32px; }
+      #as-about .as-about-hero { min-height: 60vh; padding: 60px 15px; }
+      #as-about .as-meaning-grid { grid-template-columns: 1fr; gap: 40px; }
+      #as-about .as-story-section { grid-template-columns: 1fr; }
+      #as-about .as-story-image { min-height: 350px; }
+      #as-about .as-story-text { padding: 50px 20px; }
+      #as-about .as-different-grid { grid-template-columns: 1fr; }
+      #as-about .as-woman-section { grid-template-columns: 1fr; }
+      #as-about .as-woman-image { min-height: 350px; order: 2; }
+      #as-about .as-woman-text { padding: 50px 20px; order: 1; }
+      #as-about .as-gallery-section { grid-template-columns: repeat(2, 1fr); }
+      #as-about .as-philosophy-section { padding: 70px 15px; }
+      #as-about .as-philosophy-quote { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="as-about">
+
+  <section class="as-about-hero">
+    <div class="as-about-hero-inner">
+      <p class="as-about-hero-eyebrow as-section-label">Our Identity</p>
+      <h1 class="as-about-hero-title">I Am Forever</h1>
+      <p class="as-about-hero-sub">
+        Some things are not made to follow seasons. They are made to endure — in fabric, in feeling, in the quiet certainty of who you are.
+      </p>
+      <div class="as-ornament-divider"><span>✦</span></div>
+    </div>
+  </section>
+
+  <section class="as-meaning-section">
+    <div class="kalles-container">
+      <div class="as-meaning-grid">
+        <div class="as-meaning-left">
+          <div class="as-meaning-glyph">अ</div>
+          <p class="as-section-label">The Name</p>
+          <h2 class="as-section-title">The Meaning</h2>
+          <p class="as-section-desc">Every great brand begins with an intention. Ours began with a word — two words, in fact — drawn from the oldest language of introspection, Sanskrit. Together, they form not just a name, but a declaration.</p>
+        </div>
+        <div class="as-meaning-right">
+          <div class="as-meaning-word">
+            <h3 class="as-meaning-word-sanskrit">Aham</h3>
+            <p class="as-meaning-word-en">The Self</p>
+            <p class="as-section-desc">In Sanskrit philosophy, Aham is the seat of consciousness — the innermost self that exists before titles, before roles, before the world names you.</p>
+          </div>
+          <div class="as-meaning-word">
+            <h3 class="as-meaning-word-sanskrit">Sadev</h3>
+            <p class="as-meaning-word-en">The Eternal</p>
+            <p class="as-section-desc">Sadev speaks of permanence — of things that do not diminish with time, but deepen. A woman's grace. A fabric's story. A craft handed down.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="as-story-section">
+    <div class="as-story-image">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80&auto=format&fit=crop" alt="Aham Sadev craftsmanship" loading="lazy">
+    </div>
+    <div class="as-story-text">
+      <div class="as-story-year">2018</div>
+      <p class="as-section-label">Where It Began</p>
+      <h2 class="as-section-title">Our Beginning</h2>
+      <p class="as-section-desc">Aham Sadev was born from a deeply personal belief — that Indian women deserve clothing as considered and complex as they are. Not fast fashion repackaged in ethnic motifs, but garments built on intention: sourced with care, woven with patience, and designed to carry meaning.</p>
+      <p class="as-section-desc">We believe in slow fashion. In fewer pieces, made better. In clothing that does not ask you to be a trend — only to be yourself.</p>
+    </div>
+  </section>
+
+  <section class="as-different-section">
+    <div class="kalles-container">
+      <div class="as-different-header">
+        <p class="as-section-label">Our Promise</p>
+        <h2 class="as-section-title">What Makes Us Different</h2>
+      </div>
+      <div class="as-different-grid">
+        <div class="as-different-block">
+          <span class="as-different-num">01</span>
+          <span class="as-different-icon">🧵</span>
+          <h3>Curated Mix</h3>
+          <p class="as-section-desc">Every piece in our collection is chosen with deliberate restraint. We do not produce in excess.</p>
+        </div>
+        <div class="as-different-block">
+          <span class="as-different-num">02</span>
+          <span class="as-different-icon">🪡</span>
+          <h3>Rooted Craft</h3>
+          <p class="as-section-desc">We work directly with artisans from North India's textile heartland—Banarasi and Chikankari master craftsman.</p>
+        </div>
+        <div class="as-different-block">
+          <span class="as-different-num">03</span>
+          <span class="as-different-icon">🌿</span>
+          <h3>Timeless Tone</h3>
+          <p class="as-section-desc">Our silhouettes are drawn with a quiet confidence. We design for longevity, not for changing trends.</p>
+        </div>
+        <div class="as-different-block">
+          <span class="as-different-num">04</span>
+          <span class="as-different-icon">♾️</span>
+          <h3>Made To Stay</h3>
+          <p class="as-section-desc">Premium fabrics, considered construction, and an absolute refusal to compromise on basic quality parameters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="as-woman-section">
+    <div class="as-woman-text">
+      <p class="as-section-label">Our Muse</p>
+      <h2 class="as-section-title">The Aham Sadev Woman</h2>
+      <p class="as-section-desc">She does not need to announce herself. She enters a room and the room adjusts. She is drawn to things with stories — garments that remember a weaver's hands, silhouettes that have stood the test of time.</p>
+      <div class="as-woman-traits">
+        <p class="as-woman-trait">Confident without performance</p>
+        <p class="as-woman-trait">Soft, yet unshakeable</p>
+        <p class="as-woman-trait">Rooted in heritage, open to the world</p>
+      </div>
+    </div>
+    <div class="as-woman-image">
+      <img src="https://images.unsplash.com/photo-1610189019599-c2e0ca49a95d?w=900&q=80&auto=format&fit=crop" alt="The Aham Sadev Muse" loading="lazy">
+    </div>
+  </section>
+
+  <section class="as-gallery-section">
+    <div class="as-gallery-item">
+      <img src="https://images.unsplash.com/photo-1605762309695-0d2c1c3e7986?w=600&q=80&auto=format&fit=crop" alt="Handwoven Silk" loading="lazy">
+      <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Handwoven Silk</span></div>
+    </div>
+    <div class="as-gallery-item">
+      <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80&auto=format&fit=crop" alt="Chikankari Craft" loading="lazy">
+      <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Chikankari Craft</span></div>
+    </div>
+    <div class="as-gallery-item">
+      <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80&auto=format&fit=crop" alt="Artisan Heritage" loading="lazy">
+      <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Artisan Heritage</span></div>
+    </div>
+    <div class="as-gallery-item">
+      <img src="https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=600&q=80&auto=format&fit=crop" alt="Chanderi Weaves" loading="lazy">
+      <div class="as-gallery-item-overlay"><span class="as-gallery-caption">Chanderi Weaves</span></div>
+    </div>
+  </section>
+
+  <section class="as-philosophy-section">
+    <div class="kalles-container">
+      <div class="as-philosophy-inner">
+        <p class="as-philosophy-quote">"I Am Forever"</p>
+        <p class="as-philosophy-text">
+          We do not believe in dressing for a moment. We believe in dressing for eternity — in small, quiet ways. A fabric that breathes. A silhouette that speaks.
+        </p>
+        <p class="as-philosophy-byline">Aham Sadev · Est. 2018</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="as-about-cta">
+    <div class="kalles-container">
+      <div class="as-cta-container">
+        <div class="as-cta-left">
+          <p class="as-section-label">Begin Here</p>
+          <h2 class="as-section-title">Wear Your Forever</h2>
+          <p class="as-section-desc">Every collection is an invitation to return to yourself — through the language of fabric, craft, and quiet elegance.</p>
+          <div class="as-cta-buttons">
+            <a href="/collections/all" class="as-btn-primary">Explore Products</a>
+          </div>
+        </div>
+        
+        <div class="as-cta-right">
+          <form method="post" action="/contact" id="contact_form" accept-charset="UTF-8" class="contact-form">
+            <div class="as-form-group">
+              <input type="text" id="as-name" name="contact[name]" placeholder="Your Name" class="as-form-input" required>
+            </div>
+            <div class="as-form-group">
+              <input type="email" id="as-email" name="contact[email]" placeholder="Email Address" class="as-form-input" required>
+            </div>
+            <div class="as-form-group">
+              <textarea id="as-message" name="contact[body]" placeholder="Your Message" class="as-form-textarea" required></textarea>
+            </div>
+            <div style="text-align: left;">
+              <button type="submit" class="as-btn-outline">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
